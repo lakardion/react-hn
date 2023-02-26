@@ -1,13 +1,15 @@
 import { useCallback, useState } from "react";
+import ItemList from "./components/ItemList";
+import { News } from "./models/News";
 import { getNews } from "./services/hn";
 import { useService } from "./utils/data-fetching";
 
 function App() {
   const [page, setPage] = useState(1);
-  const getNewsByPage = useCallback(() => {
+  const getNewsByPage = useCallback(():Promise<News[]> => {
     return getNews({ page });
   }, [page]);
-  const { data: news } = useService(getNewsByPage);
+  const { data: news} = useService(getNewsByPage);
   console.log(news);
   return (
     <main className="p-1.5">
@@ -18,11 +20,7 @@ function App() {
         <p className="bg-orange-100/50">Hacker News</p>
       </header>
       <section className="flex-grow">
-        <ul className="flex flex-col gap-3">
-          {Array.isArray(news)
-            ? news.map((n) => <li key={n.id}>{n.title}</li>)
-            : null}
-        </ul>
+        <ItemList newsList={news} />
       </section>
     </main>
   );
