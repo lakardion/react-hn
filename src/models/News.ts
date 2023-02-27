@@ -1,6 +1,6 @@
 export interface News {
     position: number;
-    comments: number;
+    comments_count: number;
     title: string;
     url: string;
     user: string;

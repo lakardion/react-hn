@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import ItemList from "./components/ItemList";
-import { News } from "./models/News";
+import ItemList from "./components/item-list";
+import { News } from "./models/news";
 import { getNews } from "./services/hn";
 import { useService } from "./utils/data-fetching";
 

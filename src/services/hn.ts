@@ -1,4 +1,4 @@
-import { News } from "../models/News";
+import { News } from "../models/news";
 
 const baseUri = "https://api.hackerwebapp.com";
 export const getNews = async ({ page }: { page?: number } = {}): Promise<News[]> => {

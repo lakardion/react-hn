@@ -1,5 +1,5 @@
-import { News } from "../models/News";
-import { Item } from "./Item";
+import { News } from "../models/news";
+import { Item } from "./item";
 
 const ItemList = (props: { newsList?: News[] | undefined }) => {
     return (<div>
@@ -8,7 +8,7 @@ const ItemList = (props: { newsList?: News[] | undefined }) => {
                 props.newsList.map((news: News) =>
                     <Item
                         position={news.position}
-                        comments={news.comments}
+                        comments_count={news.comments_count}
                         title={news.title}
                         url={news.url}
                         user={news.user}
