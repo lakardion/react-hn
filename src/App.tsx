@@ -6,10 +6,10 @@ import { useService } from "./utils/data-fetching";
 
 function App() {
   const [page, setPage] = useState(1);
-  const getNewsByPage = useCallback(():Promise<News[]> => {
+  const getNewsByPage = useCallback(() => {
     return getNews({ page });
   }, [page]);
-  const { data: news} = useService(getNewsByPage);
+  const { data: news } = useService(getNewsByPage);
   console.log(news);
   return (
     <main className="p-1.5">
