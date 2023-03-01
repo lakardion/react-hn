@@ -1,5 +1,7 @@
+import { News } from "../models/news";
+
 const baseUri = "https://api.hackerwebapp.com";
-export const getNews = async ({ page }: { page?: number } = {}) => {
+export const getNews = async ({ page }: { page?: number } = {}): Promise<News[]> => {
   const res = await fetch(`${baseUri}/news${page ? "?page=" + page : ""}`);
   const json = await res.json();
   return json;

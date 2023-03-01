@@ -1,4 +1,6 @@
 import { useCallback, useState } from "react";
+import ItemList from "./components/item-list";
+import { News } from "./models/news";
 import { getNews } from "./services/hn";
 import { useService } from "./utils/data-fetching";
 
@@ -18,11 +20,7 @@ function App() {
         <p className="bg-orange-100/50">Hacker News</p>
       </header>
       <section className="flex-grow">
-        <ul className="flex flex-col gap-3">
-          {Array.isArray(news)
-            ? news.map((n) => <li key={n.id}>{n.title}</li>)
-            : null}
-        </ul>
+        <ItemList newsList={news} />
       </section>
     </main>
   );

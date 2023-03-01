@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-export const useService = <TResponse, T extends () => Promise<TResponse>>(
+export const useService = <T extends (...args: any[]) => Promise<any>>(
   fn: T
 ) => {
+  type TResponse = T extends (...args: any[]) => Promise<infer T> ? T : never;
   const [data, setData] = useState<TResponse>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<unknown>();
